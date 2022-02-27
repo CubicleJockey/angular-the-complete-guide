@@ -9,11 +9,14 @@ export class ServerComponent{
     public serverId: Number = 10;
 
     public getServerStatus(){
-        let number = Math.floor(Math.random() * 3);
-        if(number <= 0){
-            return 'online';
+       return Math.random() > 0.5 ? 'online' : 'offline';
+    }
+
+    public getColor(): string {
+        if(this.getServerStatus() === 'online'){
+            return 'green';
         } else {
-            return 'offline';
+            return 'red';
         }
     }
 }
