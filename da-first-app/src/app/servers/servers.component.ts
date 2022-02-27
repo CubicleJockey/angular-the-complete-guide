@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-  public alloweNewServer: boolean = false;
+  public allowNewServer: boolean = false;
 
   constructor() { 
     setTimeout(() => {
-      this.alloweNewServer = true;
+      this.allowNewServer = true;
     }, 2000);
   }
 
