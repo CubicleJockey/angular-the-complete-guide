@@ -14,4 +14,20 @@ export class AppComponent {
       new ServerInfo('Server', 'This is a test server.', 'server')
     );
   }
+
+  onServerAdded(server: { name: string, content: string }): void {
+    this.serverElements.push(new ServerInfo(
+      server.name,
+      server.content,
+      'server'
+    ));
+  }
+
+  onBlueprintAdded(blueprint: { name: string, content: string }): void {
+    this.serverElements.push(new ServerInfo(
+      blueprint.name,
+      blueprint.content,
+      'blueprint'
+    ));
+  }
 }

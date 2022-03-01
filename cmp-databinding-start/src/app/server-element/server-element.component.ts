@@ -7,12 +7,12 @@ import { ServerInfo } from '../shared/server-info.model';
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements OnInit {
-  @Input() public element: ServerInfo;
+  @Input('server-element') public element: ServerInfo;
+  //@Input() public element: ServerInfo;
   //public element: {type: string, name: string, content: string } IFF no model
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
