@@ -8,7 +8,16 @@
       <app-server-element
        *ngFor="let server of serverElements"
        [server-element]="server"
-       ></app-server-element>
+       >
+       <!--
+         Angular by default will not allow HTML between component tags.
+         To override this <ng-content></ng-contnet> is needed in the component
+        -->
+        <p>
+          <strong *ngIf="server.IsServer()" style="color: red">{{ server.Content }}</strong>
+          <em *ngIf="server.IsBlueprint()">{{ server.Content }}</em>
+        </p>
+      </app-server-element>
     </div>
   </div>
 </div>
