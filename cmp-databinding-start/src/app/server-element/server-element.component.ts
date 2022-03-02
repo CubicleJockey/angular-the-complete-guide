@@ -12,8 +12,11 @@ export class ServerElementComponent implements OnInit {
   //@Input() public element: ServerInfo;
   //public element: {type: string, name: string, content: string } IFF no model
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
+    
   }
 }
