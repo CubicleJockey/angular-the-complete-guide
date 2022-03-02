@@ -1,4 +1,14 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked
+        ,AfterContentInit
+        ,AfterViewChecked
+        ,AfterViewInit
+        ,Component
+        ,DoCheck
+        ,OnChanges
+        ,OnDestroy
+        ,OnInit
+        ,SimpleChanges 
+} from '@angular/core';
 
 @Component({
   selector: 'app-life-cycle-hook-example',
@@ -15,18 +25,25 @@ export class LifeCycleHookExampleComponent
               ,AfterViewChecked
               ,OnDestroy {
 
+  public SomeProperty: number;
+
   constructor() { 
     console.log(`constructor() called! - ${this.getCallTime()}`);
+    setTimeout(() => {
+      this.SomeProperty = Date.now();
+      setTimeout(() => {
+        this.SomeProperty = Date.now();
+      }, 5000);
+    }, 2000);
   }
 
   ngOnInit(): void {
     console.log(`ngOnInit() called. - ${this.getCallTime()}`);
   }
-
-  ngOnChanges(): void{
+  ngOnChanges(changes: SimpleChanges): void{
     console.log(`ngOnChanges() called! - ${this.getCallTime()}`);
+    console.log(changes);
   }
-
   ngDoCheck(): void {
     console.log(`ngDoCheck() called! - ${this.getCallTime()}`);
   }
