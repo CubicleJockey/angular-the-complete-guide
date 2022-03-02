@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipe-app';
+  public title: string = 'recipe-app';
+  public TabSelected: string;
+
+  constructor(){
+    this.TabSelected = 'home';
+  }
+
+  public OnNavigationChange($event: {TabName: string}): void{
+    //console.log($event.TabName);
+    if($event.TabName){
+      this.TabSelected = $event.TabName.toLowerCase();
+      return;
+    }
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  public OnNavigationClick: EventEmitter<{TabName: string}>;
 
+  constructor() { 
+    this.OnNavigationClick = new EventEmitter<{TabName: string}>();
+  }
   ngOnInit(): void {
+
   }
 
+  public OnNavigateTo($event: any): void {
+    let anchor = $event.target;
+
+    if(anchor && anchor.id){
+      this.OnNavigationClick.emit({ TabName: anchor.id });
+      return;
+    }
+    throw new Error('Navigation link must provide an id attribute.');
+  }
 }

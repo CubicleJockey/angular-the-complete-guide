@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light menu-padding">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Recipe Book</a>
+      <a id="Home" class="navbar-brand" href="#" (click)="OnNavigateTo($event)">Recipe Book</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Recipe List</a>
+            <a class="nav-link active" aria-current="page" href="#" id="recipe-list" (click)="OnNavigateTo($event)">Recipe List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shopping List</a>
+            <a class="nav-link" href="#" id="shopping-list" (click)="OnNavigateTo($event)">Shopping List</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" 
@@ -20,8 +20,8 @@
               Manage <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Save Data</a></li>
-              <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+              <li><a class="dropdown-item" href="#" id="save-data" (click)="OnNavigateTo($event)">Save Data</a></li>
+              <li><a class="dropdown-item" href="#" id="fetch-data" (click)="OnNavigateTo($event)">Fetch Data</a></li>
             </ul>
           </li>
           </ul>
