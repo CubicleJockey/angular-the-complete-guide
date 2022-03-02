@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ServerInfo } from './shared/server-info.model';
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent {
     );
   }
 
-  onServerAdded(server: { name: string, content: string }): void {
+  public onServerAdded(server: { name: string, content: string }): void {
     this.serverElements.push(new ServerInfo(
       server.name,
       server.content,
@@ -23,11 +23,22 @@ export class AppComponent {
     ));
   }
 
-  onBlueprintAdded(blueprint: { name: string, content: string }): void {
+  public onBlueprintAdded(blueprint: { name: string, content: string }): void {
     this.serverElements.push(new ServerInfo(
       blueprint.name,
       blueprint.content,
       'blueprint'
     ));
+  }
+
+  public ngOnDestory() : void {
+    console.log('app.component.ts ngOnDestoryed() called!');
+  }
+
+  public destoryLastServer(): void{
+    if(this.serverElements.length >= 1){
+      const last = this.serverElements.length - 1;
+      this.serverElements.splice(last, 1);
+    }
   }
 }

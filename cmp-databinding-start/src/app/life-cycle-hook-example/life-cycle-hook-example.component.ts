@@ -4,7 +4,7 @@ import { AfterContentChecked
         ,AfterViewInit
         ,Component
         ,DoCheck
-        ,OnChanges
+        ,Input,OnChanges
         ,OnDestroy
         ,OnInit
         ,SimpleChanges 
@@ -25,6 +25,7 @@ export class LifeCycleHookExampleComponent
               ,AfterViewChecked
               ,OnDestroy {
 
+  @Input()
   public SomeProperty: number;
 
   constructor() { 

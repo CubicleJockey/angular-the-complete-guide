@@ -21,4 +21,8 @@
     </div>
   </div>
 </div>
-<app-life-cycle-hook-example></app-life-cycle-hook-example>
+<!--ngOnChanges(SimpleChanges) only triggers if you have a bound Input property-->
+<app-life-cycle-hook-example [SomeProperty]="serverElements.length"></app-life-cycle-hook-example>
+
+<!--this on is calling the onDestory() of server-element.component.ts-->
+<button class="btn btn-danger" (click)="destoryLastServer()">Delete Last Item</button>
