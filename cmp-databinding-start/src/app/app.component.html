@@ -1,4 +1,4 @@
-<div class="container">
+<main class="container">
   <app-cockpit 
     (serverCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
@@ -20,9 +20,17 @@
       </app-server-element>
     </div>
   </div>
-</div>
-<!--ngOnChanges(SimpleChanges) only triggers if you have a bound Input property-->
-<app-life-cycle-hook-example [SomeProperty]="serverElements.length"></app-life-cycle-hook-example>
+  <div class="row">
+    <div class="col-xs-12">
+      <!--ngOnChanges(SimpleChanges) only triggers if you have a bound Input property-->
+      <app-life-cycle-hook-example [SomeProperty]="serverElements.length"></app-life-cycle-hook-example>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <!--this on is calling the onDestory() of server-element.component.ts-->
+      <button class="btn btn-danger" (click)="destoryLastServer()">Delete Last Item</button>
+    </div>
+  </div>
+</main>
 
-<!--this on is calling the onDestory() of server-element.component.ts-->
-<button class="btn btn-danger" (click)="destoryLastServer()">Delete Last Item</button>
