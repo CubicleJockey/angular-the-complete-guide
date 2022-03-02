@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServerInfo } from './shared/server-info.model';
 
 @Component({
@@ -29,10 +29,6 @@ export class AppComponent {
       blueprint.content,
       'blueprint'
     ));
-  }
-
-  public ngOnDestory() : void {
-    console.log('app.component.ts ngOnDestoryed() called!');
   }
 
   public destoryLastServer(): void{
